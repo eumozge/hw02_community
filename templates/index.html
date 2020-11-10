@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Последние обновления{% endblock %}
+{% block header %}Последние обновления на сайте{% endblock %}
+{% block content %}
+{% for item in posts %}
+    <h3>Автор: {{ item.author.get_full_name }}, дата публикации: {{ item.pub_date|date:"d M Y" }}</h3>
+    <p>{{ item.text|linebreaksbr }}</p>
+    {% if not forloop.last %}<hr>{% endif %}
+{% endfor %}
+{% endblock %}
