@@ -14,7 +14,7 @@ class Group(models.Model):
 
 
 class Post(models.Model):
-    author = models.ForeignKey(User, on_delete=models.PROTECT)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     group = models.ForeignKey(
         "posts.Group", on_delete=models.SET_NULL, related_name="posts",
         blank=True, null=True
